@@ -6,22 +6,54 @@ function moduleProject1() {
   // 👇 WORK WORK BELOW THIS LINE 👇
 
   // 👉 TASK 1 - Add a "widget" class name to widgets so CSS kicks in
-  //  ✨ add your code here
+  // Select all widgets, replace 'widgetElement' with the actual selector
+  let widgets = document.querySelectorAll('.widgetElement');
+  // Add 'widget' class to all widgets
+widgets.forEach(widget => widget.classList.add('widget'));
 
-  // 👉 TASK 2 - Build a "Quote of the Day" widget
-  //  ✨ add your code here
 
-  // 👉 TASK 3 - Build a "Corporate Speak" widget
-  //  ✨ add your code here
+  //👉 TASK 2 - Build a "Quote of the Day" widget
+  // Create a new div element
+let quoteWidget = document.createElement('div');
 
-  // 👉 TASK 4 - Build a "Countdown" widget
-  //  ✨ add your code here
+// Set the text content to be a quote
+quoteWidget.textContent = "Quote of the day: 'The only way to do great work is to love what you do.' - Steve Jobs";
 
+// Add a class to style the widget
+quoteWidget.classList.add('quote-widget');
+
+// Append the div to the body of the document
+
+let corporateWidget = document.createElement('div');
+corporateWidget.textContent = "Corporate Speak: 'Let's touch base offline about our value-add strategies.'";
+corporateWidget.classList.add('corporate-widget');
+document.body.appendChild(corporateWidget);
+
+// 👉 TASK 4 - Build a "Countdown" widget
+let countdownWidget = document.createElement('div');
+let countdown = 10;
+countdownWidget.textContent = `Countdown: ${countdown}`;
+countdownWidget.classList.add('countdown-widget');
+document.body.appendChild(countdownWidget);
+setInterval(() => {
+  countdown--;
+  countdownWidget.textContent = `Countdown: ${countdown}`;
+}, 1000);
   // 👉 TASK 5 - Build a "Friends" widget
-  //  ✨ add your code here
+
+let friendsWidget = document.createElement('ul');
+let friends = ['Alice', 'Bob', 'Charlie'];
+friends.forEach(friend => {
+  let li = document.createElement('li');
+  li.textContent = friend;
+  friendsWidget.appendChild(li);
+});
+friendsWidget.classList.add('friends-widget');
+document.body.appendChild(friendsWidget);
 
   // 👉 TASK 6 - Make it so user can tab through the widgets
-  //  ✨ add your code here
+  let allWidgets = document.querySelectorAll('.widget');
+allWidgets.forEach(widget => widget.setAttribute('tabindex', '0'));
 
   // 👆 WORK WORK ABOVE THIS LINE 👆
 }
